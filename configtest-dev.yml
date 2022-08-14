@@ -1,17 +1,3 @@
-{
-  "name": "configtest",
-  "profiles": [
-    "dev"
-  ],
-  "label": null,
-  "version": "e34bsdlfkelk2j3lkd",
-  "state": null,
-  "propertySources": [
-    {
-      "name": "https://github.com/supermay203/sbc-config.git/configtest-dev.yml",
-      "source": {
-        "fnugw.value": "dev-test-value"
-      }
-    }
-  ]
-}
+fnu:
+  aiccgw:
+    name: fnuaiccgw
