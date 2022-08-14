@@ -1,1 +1,17 @@
-
+{
+  "name": "configtest",
+  "profiles": [
+    "prod"
+  ],
+  "label": null,
+  "version": "dfdfewe23dfaersdf",
+  "state": null,
+  "propertySources": [
+    {
+      "name": "https://github.com/supermay203/sbc-config.git/configtest-dev.yml",
+      "source": {
+        "fnugw.value": "prod-test-value"
+      }
+    }
+  ]
+}
