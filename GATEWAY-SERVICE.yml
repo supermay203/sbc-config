@@ -1,0 +1,35 @@
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 3000 # 3초
+        response-timeout: 5s # 5초, 글로벌 설정시 seconds
+      default-filters:
+        - name: CustomFilter # 글로벌 설정
+          args:
+            baseMessage: Spring Cloud Gateway CustomFilter1
+            preLogger: true
+            postLogger: true
+      routes:
+        - id: CIS_SERVICE
+          uri: http://localhost:9192/
+          metadata:
+            connect-timeout: 15000 # 15초
+            response-timeout: 15000 # 15초, 개별 설정시 milliseconds
+          predicates:
+#            - Path=/api/user/**, /api/cisapi-service/**
+            - Path=/api/**, /api/biz/col/cci/cci10/**
+
+          filters:
+            - AddRequestHeader=first-request, first-request-header2
+            - AddResponseHeader=first-response, first-response-header2
+            - name: CustomFilter # 개별 설정
+              args:
+                baseMessage: Spring Cloud Gateway CustomFilter2
+                preLogger: true
+                postLogger: true
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: cis2.0-service
+#                fallbackuri: forward:/cisApiFallBack
